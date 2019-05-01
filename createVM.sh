@@ -1,6 +1,9 @@
 #!/bin/bash
 
+# You need to make this work for three different VMs 
 
+# You don't even need the functions. Remove functions, keep variables and use conditionals for next step in order to
+# check if the vm, disk ect. has already been created.
 groupName=$1
 vmName=$2
 diskName=$3
@@ -25,7 +28,7 @@ createDisk
 # check IP of vm
 az vm show -g $groupName -n $vmName -d -o table
 
-az vm disk detach -n $diskName -g groupName --vm-name $vmName
+az vm disk detach -n $diskName -g $groupName --vm-name $vmName
 
 
 createSnapShot() {
