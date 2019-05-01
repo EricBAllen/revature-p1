@@ -1,5 +1,4 @@
 #!/bin/bash
-# Create VM
 
 
 groupName=$1
@@ -7,8 +6,8 @@ vmName=$2
 diskName=$3
 diskDirectory=$4
 snapShot=$5
-imageName=$6
-vmImageName=$7
+imageName=$6 # The image used to make the new VM
+vmImageName=$7 # The new VM
 
 createVM() {
         az vm create -g $groupName -n $vmName --image UbuntuLTS --custom-data ./init.txt --generate-ssh-keys \
@@ -16,8 +15,6 @@ createVM() {
         az vm open-port -g $groupName -n $vmName --port 8080
 }
 createVM
-
-# by defining separate varibles for the funtion below, we can use different group names while creating a disk.
 
 createDisk() {
        az vm disk attach -g $groupName -n $diskName --vm-name $vmName --size 30 --new
@@ -28,15 +25,13 @@ createDisk
 # check IP of vm
 az vm show -g $groupName -n $vmName -d -o table
 
-# make directory for the mounted disk
-
 az vm disk detach -n $diskName -g groupName --vm-name $vmName
 
 
 createSnapShot() {
         az snapshot create -g $groupName -n $snapShot --size 30
 } 
-createSnapShot # call function
+createSnapShot
 
 
 az vm deallocate -g $groupName -n $vmName
