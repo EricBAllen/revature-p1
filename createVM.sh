@@ -10,10 +10,6 @@ snapShot=$5
 imageName=$6
 vmImageName=$7
 
-$command 
-
-./createVM.sh 
-
 createVM() {
         az vm create -g $groupName -n $vmName --image UbuntuLTS --custom-data ./init.txt --generate-ssh-keys \
         -l southcentralus
@@ -29,17 +25,12 @@ createDisk() {
 
 createDisk
 
-
 # check IP of vm
 az vm show -g $groupName -n $vmName -d -o table
 
 # make directory for the mounted disk
 
 az vm disk detach -n $diskName -g groupName --vm-name $vmName
-sudo mkfs -t ext4 /dev/sdc
-sudo mkdir /media/$diskDirectory
-sudo mount /dev/sdc /media/$diskDirectory
-sudo mv server.js /media/$diskDirectory
 
 
 createSnapShot() {
@@ -47,11 +38,7 @@ createSnapShot() {
 } 
 createSnapShot # call function
 
-## ..............................................................THE ABOVE CODE WORKS!!!..................................................
 
- #below all need to be inside cloudconfig below the runcm 
-sudo unmount /media/$diskDirectory # unmount disk
-sudo waagent deprovision+user -force # deprovision vm
 az vm deallocate -g $groupName -n $vmName
 az vm generalize -g $groupName -n $vmName
 

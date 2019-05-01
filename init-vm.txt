@@ -29,9 +29,8 @@ runcmd:
     - cd '/home/ericazure/'
     - node server.js
     - sudo mkfs -t ext4 /dev/sdc
-    - sudo mkdir /media/$diskDirectory
-    - sudo mount /dev/sdc /media/$diskDirectory
-    - sudo mv server.js /media/$diskDirectory
-
-
-    
+    - sudo mkdir /media/diskDirectory
+    - sudo mount /dev/sdc /media/diskDirectory
+    - sudo mv server.js /media/diskDirectory/
+    - sudo unmount /media/diskDirectory # unmount disk
+    - sudo waagent deprovision+user -force # deprovision vm
