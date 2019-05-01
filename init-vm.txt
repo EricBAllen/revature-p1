@@ -1,6 +1,6 @@
 #cloud-config
 pacakage_update: true
-packages:
+packages:  
     - build-essential
     - curl  
     - file

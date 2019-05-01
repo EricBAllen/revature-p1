@@ -4,6 +4,7 @@
 
 # You don't even need the functions. Remove functions, keep variables and use conditionals for next step in order to
 # check if the vm, disk ect. has already been created.
+# 
 groupName=$1
 vmName=$2
 diskName=$3
