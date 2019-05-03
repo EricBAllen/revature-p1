@@ -34,3 +34,4 @@ runcmd:
     - sudo mv server.js /media/diskDirectory/
     - sudo unmount /media/diskDirectory # unmount disk
     - sudo waagent deprovision+user -force # deprovision vm
+    

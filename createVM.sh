@@ -1,5 +1,7 @@
 #!/bin/bash
 
+### 
+
 # You need to make this work for three different VMs 
 
 # You don't even need the functions. Remove functions, keep variables and use conditionals for next step in order to
@@ -13,9 +15,11 @@ snapShot=$5
 imageName=$6 # The image used to make the new VM
 vmImageName=$7 # The new VM
 
+
+
 createVM() {
         az vm create -g $groupName -n $vmName --image UbuntuLTS --custom-data ./init.txt --generate-ssh-keys \
-        -l southcentralus
+        -l southcentralus 
         az vm open-port -g $groupName -n $vmName --port 8080
 }
 createVM
