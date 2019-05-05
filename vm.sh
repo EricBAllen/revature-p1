@@ -4,6 +4,7 @@ scaleName=$2
 numberOfVms=$3
 storageAccount=$4
 containerName=$5
+databaseName=$6
 
 az vmss create \
   --resource-group $resourceGroup \
@@ -25,7 +26,8 @@ az storage account create -g $resourceGroup -n $storageAccount
 # create storage container
 az storage container create -n $containerName --account-name $storageAccount --public-access blob
 
-
+# create database account
+az cosmosdb create -g $resourceGroup -n $databaseName
 
 
 # this will confirm the disks have been prepared correctly
