@@ -15,6 +15,8 @@ az vmss create \
   --generate-ssh-keys \
   --data-disk-sizes-gb 30 30 30 \
   --custom-data ./init-vm.txt 
+  # use the public IP address to give each vm the same IP. Then we can make them on separate servers later.
+  --public-ip-address 
   
 # scale out by 3 vms
 az vmss scale -g $resourceGroup -n $scaleName --new-capacity $numberOfVms
