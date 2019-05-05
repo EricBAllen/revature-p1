@@ -2,13 +2,13 @@
 pacakage_update: true
 packages:  
     - build-essential
-    - curl  
+    - curl https://raw.githubusercontent.com/EricBAllen/revature-p1/master/vm.html 
     - file
     - git
     - nodejs
 write_files:
     - owner: 'ericazure:ericazure'
-      path: '/home/ericazure/server.js'
+      path: '/home/ericazure/app.js'
       content: |
         const http = require('http');
 
@@ -17,9 +17,11 @@ write_files:
 
         const server = http.createServer((req, res) => {
             res.statusCode = 200;
-            res.setHeader('Content-Type', 'text/html');
+            res.setHeader('Content-Type', 'vm.html');
             res.end('<h1>Hello World</h1>');
         });
+
+# app.get........
 
         server.listen(port, hostname, () => {
             console.log(`Server running at http://${hostname}:${port}/`);

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="testVM.sh"></script> <!--link vm script to html-->
+
+</head>
+<body>
+    <header>
+        <h1> Welcome to my website </h1>
+    </header>
+    <!-- below is the code from the video -->
+    <form action="./upload" method="POST" enctype="multipart/form-data">
+        <div class="file-field input-field">
+          <div class="btn grey">
+            <span>File</span>
+            <input name="myImage" type="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+        <button type="submit">upload</button>
+      </form>
+
+    <main>
+        <form>
+            <button type="button" id="addPhoto">add photo</button>
+            <input type="text"> 
+            <div>
+                <button type="button" id="deletePhoto"> delete photo </button>
+                <input type="text">
+            </div>
+        </form>
+
+    </main>
+
+</body>
+</html>

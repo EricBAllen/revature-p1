@@ -1,6 +1,6 @@
 #!/bin/bash
 
-### 
+
 
 # You need to make this work for three different VMs 
 
