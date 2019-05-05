@@ -6,6 +6,13 @@ storageAccount=$4
 containerName=$5
 databaseName=$6
 
+
+# servers 
+mysql             : Manage Azure Database for MySQL servers.
+
+# possibly use for connecting the app.js to our azure account
+webapp            : Manage web apps.
+
 az vmss create \
   --resource-group $resourceGroup \
   --name $scaleName \
