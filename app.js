@@ -3,17 +3,6 @@ const multer = require('multer');
 const ejs = require('ejs');
 const path = require('path');
 
-const storage = multer.diskStorage({
-  destination: './public/uploads/',
-  // code below will check to see if a filename for the pic is taken 
-  filename: function(req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-  }
-})
-
-const upload = multer({
-  storage: storage
-}).single('myImage'); //single to specify it's a single file  
 
 const app = express()
 const port = 3000
