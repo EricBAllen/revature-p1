@@ -8,7 +8,7 @@ packages:
     - nodejs
 write_files:
     - owner: 'ericazure:ericazure'
-      path: '/home/ericazure/app.js'
+      path: '/home/ericazure/index.js'
       content: |
         const http = require('http');
 

@@ -8,11 +8,9 @@ const router = express.Router();
 const app = express();
 
 router.get('/',function(req,res){
-  res.sendFile(path.join(__dirname+'/index.html'));
+  res.sendFile(path.join(__project1Prep+'/index.html'));
   
 });
-
-
 const hostname = '127.0.0.1';
 const port = 3000;
 
