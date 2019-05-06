@@ -8,10 +8,10 @@ databaseName=$6
 
 
 # servers 
-mysql             : Manage Azure Database for MySQL servers.
+#mysql             : Manage Azure Database for MySQL servers.
 
 # possibly use for connecting the app.js to our azure account
-webapp            : Manage web apps.
+#webapp            : Manage web apps.
 
 az vmss create \
   --resource-group $resourceGroup \
@@ -21,7 +21,7 @@ az vmss create \
   --admin-username ericazure \
   --generate-ssh-keys \
   --data-disk-sizes-gb 30 30 30 \
-  --custom-data ./init-vm.txt 
+  --custom-data ./init-vm.txt \
   # use the public IP address to give each vm the same IP. Then we can make them on separate servers later.
   --public-ip-address 
   
