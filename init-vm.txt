@@ -21,8 +21,6 @@ write_files:
             res.end('index.ejs');
         });
 
-# app.get........
-
         server.listen(port, hostname, () => {
             console.log(`Server running at http://${hostname}:${port}/`);
         });
@@ -37,36 +35,3 @@ runcmd:
     - sudo unmount /media/diskDirectory # unmount disk
     - sudo waagent deprovision+user -force # deprovision vm
     
-
-
-
-    # INDEX.JS IS BELOW .......
-
-    const express = require('express');
-const multer = require('multer');
-const ejs = require('ejs');
-const path = require('path');
-const js = require('js');
-const app = express();
-const port = 8000
-
-app.set('view engine', 'js');
-app.use(express.static('./public'))
-
-app.get('/', (req, res) => res.render('index'))
-
-app.post('/upload', (req, res) => { // we use app.post request to /uploads
-  upload(req, res, (err) => {
-    if(err){
-      res.render('index', {
-        msg: err
-      });
-    } else {
-      console.log(req.file);
-      res.send('test');
-    }
-
-  })
-})
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
