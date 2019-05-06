@@ -11,7 +11,7 @@ app.use(express.static('./public'))
 
 app.get('/', (req, res) => res.render('index'))
 
-app.post('/upload', (req, res) => { // we use app.post request to /uploads 
+app.post('/upload', (req, res) => { // we use app.post request to /uploads
   upload(req, res, (err) => {
     if(err){
       res.render('index', {
